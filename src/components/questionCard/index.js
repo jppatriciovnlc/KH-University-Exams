@@ -1,19 +1,42 @@
 import * as S from './styled';
+import React, {useState} from 'react';
 
 const QuestionCard = (props) => {
+
+    const [selectedAnswer, setSelectedAnswer] = useState('0');
+
+    const onYesClick = () => {        
+        setSelectedAnswer('1')
+        props.onSelectAnswer('1', props.questionNumber)
+    }
+
+    const onNoClick = () => {
+        setSelectedAnswer('2')
+        props.onSelectAnswer('2', props.questionNumber)
+    }
 
     return(
         <S.Container>
             <S.QuestionContainer>
-                <S.Number>01</S.Number>
+                <S.Number>{(props.questionNumber +1).toString().padStart(2, "0")}</S.Number>
                 <S.Question>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ullamcorper sem eu urna placerat venenatis. Vivamus eleifend urna nec sem finibus sollicitudin. Quisque at pulvinar elit. Curabitur metus nulla, rutrum sed ultricies volutpat, ultrices vel ex. Mauris ultricies lorem sed tincidunt scelerisque. Mauris condimentum porta sem, a malesuada metus laoreet ut. Curabitur in nibh urna. Nullam at metus iaculis, facilisis velit eget, condimentum neque. Mauris sit amet sapien at diam tincidunt ultrices. Phasellus vel efficitur augue, vel dapibus mi. Nulla luctus tincidunt velit, vitae mattis urna iaculis in. Fusce tempus nisl non placerat vestibulum. Cras blandit a nunc sed tristique.                     
+                    {props.question.text}                  
                 </S.Question>
             </S.QuestionContainer>
             <S.ButtonContainer>                
-                <S.ButtonYes>Yes</S.ButtonYes>
-                <S.ButtonNo>No</S.ButtonNo>
-                <S.Value>0.25 Pontos</S.Value>
+                <S.Button
+                    onClick ={() => onYesClick()}
+                    selected = {selectedAnswer === '1' ? true: false}
+                >
+                    Yes
+                </S.Button>
+                <S.Button
+                    onClick ={() => onNoClick()}
+                    selected = {selectedAnswer === '2' ? true: false}
+                >
+                    No
+                </S.Button>
+                <S.Value>{`${props.question.value} Points`}</S.Value>
             </S.ButtonContainer>
         </S.Container>
     )

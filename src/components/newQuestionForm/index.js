@@ -1,19 +1,45 @@
-import { ButtonSubmit, TextArea } from '..';
-import { Select } from '../select/styled';
+import { ButtonSubmit, TextArea, Select } from '..';
+import React, {useState} from 'react';
 import * as S from './styled';
 
-const answerOptions =  [
-    {
-        label: "Yes",
-        value: "yes"
-    },
-    {
-        label: "No",
-        value: "no"
-    }        
-];
 
 const NewQuestionForm = (props) => {
+
+    const [ selectedAnswer, setSelectedAnswer ] = useState("")
+    const [ question, setQuestion ] = useState("")
+
+    const handleAnswerChange = (e) => {   
+        setSelectedAnswer(e);  
+    }
+
+    const answerOptions =  [
+        {
+            label: "",
+            value: ""
+        },
+        {
+            label: "Yes",
+            value: "yes"
+        },
+        {
+            label: "No",
+            value: "no"
+        }        
+    ];
+
+    const handleQuestionChange = (e) => {
+        setQuestion(e)
+    }
+
+    const onSubmit = () => {
+        let submitValues = {
+            question: question,
+            answer: selectedAnswer
+        }
+        console.log(submitValues)
+     }
+
+
     return(
         <S.Container>
             <S.Title>Insert a New Question</S.Title>
@@ -24,7 +50,7 @@ const NewQuestionForm = (props) => {
                     <S.Label>Question</S.Label>
                     <TextArea                        
                         height="50px"
-                        onChange={() => console.log('q')}
+                        onChange={handleQuestionChange}
                     />
                 </S.FormGroup>
                 <S.FormGroup
@@ -32,13 +58,13 @@ const NewQuestionForm = (props) => {
                 >
                     <S.Label>Answer</S.Label>
                     <Select                                  
-                        onChange={() => console.log('q')}
+                        onChange={handleAnswerChange}
                         options={answerOptions} 
                     />
                 </S.FormGroup>
             </S.ContainerForm>
             
-            <ButtonSubmit/>
+            <ButtonSubmit handleClick={onSubmit}/>
         </S.Container>
     )
 

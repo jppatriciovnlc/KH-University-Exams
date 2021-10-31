@@ -72,25 +72,19 @@ export const ButtonContainer = styled.div`
     
 `
 
-export const ButtonYes = styled.button`
+export const Button = styled.button`
     height: 40px;
     width: 100px;
     border-radius: 25px;
-    border: solid 1px #fff;
-    background-color: #17c50b;
+    border: ${props => props.selected? 'solid 5px #fffff' : 'solid 1px #fffff' } ;
+    background-color: ${props => props.selected? '#27d4ca' : '#fffff' } ;
     font-family: Helvetica, Sans-Serif;
+    cursor: pointer;
 
-    @media (max-width: 800px) {
-        width: 70px;
+    &:hover{
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
     }
-`
 
-export const ButtonNo = styled.button`
-    height: 40px;
-    width: 100px;
-    border-radius: 25px;
-    border: solid 1px #fff;
-    background-color: #c5180b;
     @media (max-width: 800px) {
         width: 70px;
     }

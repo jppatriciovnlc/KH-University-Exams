@@ -13,7 +13,7 @@ export const Input = styled.textarea `
    word-wrap: break-word;
 
    
-   border: 2px solid #faa292;
+   border: 2px solid #27d4ca;
 
    ::placeholder{      
       //opacity: 1;
@@ -23,7 +23,7 @@ export const Input = styled.textarea `
       transition: 0.5s;
       outline: none;      
       border: 2px solid #ffffff;
-      background-color: #faa292;
+      background-color: #27d4ca;
       
       font-weight: 700;
    }

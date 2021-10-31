@@ -12,6 +12,10 @@ export const Button = styled.button`
     font-weight: 600;
     cursor: pointer;
 
+    &:disabled {
+        cursor: auto
+    }
+
     @media (max-width: 800px) {
         width: 70px;
     }

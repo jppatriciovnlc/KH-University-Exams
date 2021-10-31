@@ -11,6 +11,7 @@ export const Container = styled.div`
   border: solid #27d4ca 3px;
   margin-bottom: 2%;
   padding-bottom:20px;
+  padding-top: 10px;
 
   
 `;

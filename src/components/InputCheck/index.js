@@ -7,7 +7,12 @@ const InputCheck = (props) => {
         const [ checked, setChecked ] = useState(props.value)
    
         const handleChecked = () => {
-            props.onChange(!checked)
+            if(props.value2){
+                props.onChange(!checked, props.value2)
+            }  
+            else{
+                props.onChange(!checked)
+            }            
             setChecked(!checked)           
             
         }  

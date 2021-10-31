@@ -10,10 +10,10 @@ export const Select = styled.select `
    font-size: 0.9rem;
    font-weight: 600;
 
-   border: 2px solid #faa292;
+   border: 2px solid #27d4ca;
 
    &:hover {
-    background-color: #faa292;   
+    background-color: #27d4ca;   
     
     border: 2px solid #ffffff;
 
