@@ -27,7 +27,7 @@
 
 ## Tech
 * React
-* Styled-componentes
+* Styled-components
 * Redux
 
 ---
